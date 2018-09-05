@@ -35,7 +35,21 @@ void analyze_string(const char * s) {
 //         check if s1 or s2 are NULL
 //     - 'char c1 = *s1;' will give you the first character in s1
 int string_compare(const char * s1, const char * s2) {
+    if (s1 == NULL || s2 == NULL){
+        return NULL;
+    }
+    char c1 = *s1;
+    char c2 = *s2;
+    string_compare(c1, c2);
+    if (c1 && c2 == '\0'){
+        return NULL;
+    }
+    if (c1 == c2) {
+        return TRUE;
+    }
+    else {
     return FALSE;
+    }
 }
 
 // This function should return the number of characters in a string
@@ -50,7 +64,18 @@ int string_compare(const char * s1, const char * s2) {
 //     - If you are getting a segmentation fault, consider the NULL case
 //
 int string_length(const char * s) {
+    string_length(s);
+    if (s == NULL){
+        return 0;
+    }
+    int count = 0;
+    for (int i = 0; i < s.Length; i++){
+        count++;
+    }
+    return count;
+    else{
     return 0;
+    }
 }
 
 // This function should return if a string is a palindrome
@@ -69,7 +94,21 @@ int string_length(const char * s) {
 //           in a string
 //
 int string_is_palindrome(const char * s, int length) {
+    char first = *s;
+    char last = *(s + length - 1);
+    string_is_palindrome(s, length);
+    if (s == NULL){
+        return FALSE;
+    }
+    if (length <= 1 && length >= 0){
+        return TRUE;
+    }
+    if (first == last){
+        return TRUE;
+    }
+    else {
     return FALSE;
+    }
 }
 
 // This function is called when "./main" is ran
@@ -85,8 +124,8 @@ int string_is_palindrome(const char * s, int length) {
 //         and then 1 should be returned (signaling an error to linux)
 //
 int core_main(int argc, const char * argv[]) {
-    const char * string1 = "Example string 1";
-    const char * string2 = "Example string 2";
+    const char * string1 = "hello";
+    const char * string2 = "world";
 
     // DON'T EDIT BELOW THIS LINE
 
